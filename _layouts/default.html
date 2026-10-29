@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav>
+        {% assign nav = "methodologies:Methodologies,meetings:Meetings,governance:Governance,join:Get involved" | split: "," %}
+        {% for item in nav %}{% assign parts = item | split: ":" %}
+        <a href="{{ '/' | append: parts[0] | append: '/' | relative_url }}"{% if page.url contains parts[0] %} aria-current="page"{% endif %}>{{ parts[1] }}</a>
+        {% endfor %}
+        <a href="{{ site.newsletter_url }}">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
+        Methodologies: <a href="{{ site.methods_url }}">methods.openeac.org</a> ·
+        Newsletter: <a href="{{ site.newsletter_url }}">openeac.substack.com</a> ·
+        Contact: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+      </p>
+      <p>This site is <a href="https://github.com/wattcarbon/openeac.org">open source</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+---
+title: Meetings
+permalink: /meetings/
+redirect_from:
+  - /p/openeac-alliance-meetings/
+---
+<h1>Meetings</h1>
+
+<p>The Alliance meets online every quarter for 50 minutes. Each meeting takes one topic: a methodology in development, or a question the members want to work through.</p>
+
+{% include next-meeting.html %}
+
+<h2>Past meetings</h2>
+
+<table class="meetings">
+  <thead><tr><th>Meeting</th><th>Topic</th><th>Material</th></tr></thead>
+  <tbody>
+  {% for m in site.data.meetings %}
+    <tr>
+      <td>{{ m.when }}</td>
+      <td>{{ m.topic }}</td>
+      <td>{% for l in m.links %}<a href="{% if l.post %}{{ site.newsletter_url }}/p/{{ l.post }}{% else %}{{ l.href }}{% endif %}">{{ l.label }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<p>Questions: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>. Every post, including the agendas and recaps above, is in the <a href="{{ site.newsletter_url }}/archive">newsletter archive</a>.</p>

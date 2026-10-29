@@ -1,0 +1,30 @@
+title: OpenEAC Alliance
+description: "Open measurement and verification methodologies for distributed energy resources."
+# No `url` or `baseurl` here: GitHub Pages fills both in, as the github.io
+# address before the custom domain is set and as www.openeac.org after.
+# Hard-coding the domain would send every redirect to it while it still
+# points somewhere else.
+markdown: kramdown
+# The newsletter and its post archive stay on Substack. Every link to a post,
+# and every redirect from an old openeac.org/p/<slug> address, is built from
+# this one value.
+newsletter_url: "https://openeac.substack.com"
+methods_url: "https://methods.openeac.org"
+contact_email: "mcgee@wattcarbon.com"
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+plugins:
+  - jekyll-redirect-from
+# Pages under _redirects exist only to forward an old Substack address. They
+# are kept in their own folder so the real pages are easy to find.
+include: ['_redirects']
+exclude:
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
+  - Dockerfile
+  - compose.yml
+  - README.md

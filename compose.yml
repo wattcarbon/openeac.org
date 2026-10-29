@@ -1,0 +1,35 @@
+# Preview this site as it will be served:
+#
+#   docker compose up          then open http://localhost:4000
+#
+# Serve it through `jekyll serve` rather than a plain file server: GitHub Pages
+# resolves extensionless requests such as /meetings to the generated file, and
+# `jekyll serve` does the same.
+
+services:
+  site:
+    build: .
+    ports:
+      - "${SITE_PORT:-4000}:4000"
+    volumes:
+      - .:/site
+    environment:
+      # Stops jekyll-github-metadata probing the GitHub API to work out which
+      # repository this is.
+      PAGES_REPO_NWO: wattcarbon/openeac.org
+      # `jekyll serve` otherwise overwrites site.url with its own listening
+      # address. Pages also builds with production.
+      JEKYLL_ENV: production
+      SITE_URL: ${SITE_URL:-http://localhost:4000}
+    # force_polling: the checkout arrives over a bind mount, where inotify is
+    # not dependable, so without it an edit does not rebuild.
+    command:
+      - sh
+      - -euc
+      - |
+        printf 'url: "%s"\nbaseurl: ""\n' "$${SITE_URL}" > /tmp/preview.yml
+        exec jekyll serve \
+          --host 0.0.0.0 --port 4000 \
+          --config _config.yml,/tmp/preview.yml \
+          --destination /tmp/_site \
+          --force_polling

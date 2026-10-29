@@ -1,0 +1,5 @@
+{% assign m = site.data.next_meeting %}
+<div class="callout">
+  <p><strong>Next meeting:</strong> {{ m.date }}, {{ m.time }}. Topic: {{ m.topic }}.</p>
+  <p>The invite goes to the Alliance's Google Group. To receive it, <a href="{{ '/join/' | relative_url }}">subscribe and we'll add you</a>.</p>
+</div>

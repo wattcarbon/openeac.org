@@ -1,0 +1,48 @@
+# Past meetings, newest first. A `post` is a Substack slug, linked under the
+# newsletter address in _config.yml. A `href` is a full URL.
+- when: "2026 Q3, 20 August"
+  topic: "DERs and the grid"
+  links:
+    - { label: "Slides", href: "https://methods.openeac.org/meetings/2026-Q3_DERs_and_the_Grid.pdf" }
+    - { label: "Demo", href: "https://methods.openeac.org/meetings/2026-Q3_Putting_a_Building_on_the_Grid.html" }
+    - { label: "Agenda", post: "q3-openeac-alliance-quarterly-meeting" }
+- when: "2026 Q2, 21 May"
+  topic: "Grid Score and Carbon Score"
+  links:
+    - { label: "Slides", href: "https://methods.openeac.org/meetings/2026-Q2_GridScore_CarbonScore.html" }
+    - { label: "Post with recording", post: "q2-2026-openeac-alliance-meeting" }
+- when: "2026 Q1, 19 February"
+  topic: "DER capacity and demand efficiency"
+  links:
+    - { label: "Slides", href: "https://methods.openeac.org/meetings/2026-Q1_DER_Capacity.pdf" }
+    - { label: "Agenda", post: "next-openeac-alliance-meeting-to" }
+- when: "2025 Q4, November"
+  topic: "Load shifting and demand response"
+  links:
+    - { label: "Slides", href: "https://methods.openeac.org/meetings/2025-Q4_LoadShifting_DemandResponse.pdf" }
+    - { label: "Recap", post: "quarterly-meeting-recap-d90" }
+- when: "2025 Q3, August"
+  topic: "The seasonal device controls methodology, and a grid-aware heat pump case study"
+  links:
+    - { label: "Recap", post: "quarterly-meeting-recap" }
+- when: "2025 Q2, 15 May"
+  topic: "The Alliance's purpose, the move from GitHub comments to Google Docs, the roadmap"
+  links:
+    - { label: "Slides and recording", post: "slides-and-recording-from-q2-openeac" }
+- when: "2025 Q1, 20 February"
+  topic: "Governance, transparency, expanding the methodologies"
+  links:
+    - { label: "Slides and recording", post: "slides-and-recording-from-q1-openeac" }
+- when: "2024, 12 September"
+  topic: "M&V planning, the steering committee workstreams, the lighting retrofit method"
+  links:
+    - { label: "Agenda", post: "next-openeac-alliance-meeting-sept" }
+    - { label: "Recap with recording", post: "open-eac-alliance-october-update" }
+- when: "2024, 18 July"
+  topic: "The first methodology submissions"
+  links:
+    - { label: "Wrap-up with recording", post: "july-openeac-alliance-wrap-up" }
+- when: "2024, May"
+  topic: "Kickoff"
+  links:
+    - { label: "Post with deck and recording", post: "the-openeac-alliance-kicks-off" }
