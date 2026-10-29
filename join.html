@@ -10,15 +10,18 @@ redirect_from:
 <p>Subscribe below and we'll add you to the OpenEAC Alliance Google Group, which carries the meeting invites, drafts sent out for comment, and the discussion between meetings. You don't need a Google account.</p>
 
 {% comment %}
-  A link, not Substack's /embed iframe: Substack can answer the embed with a
-  bot check and then refuse to be framed, which leaves a blank box. A new free
-  subscriber triggers Substack's "New free subscriber" email, and that address
-  is then added to the Google Group by hand. This is the join path until the
-  Group takes sign-ups directly.
+  Substack's subscribe form. It loads from the newsletter's own address, never
+  www.openeac.org/embed: that address belonged to Substack only while it served
+  the custom domain, and is this site now. The link under it is for a browser
+  where the form does not load, since Substack can refuse to be framed.
+
+  A new free subscriber triggers Substack's "New free subscriber" email, and
+  that address is then added to the Google Group by hand. This is the join path
+  until the Group takes sign-ups directly.
 {% endcomment %}
-<ul class="actions">
-  <li><a href="{{ site.newsletter_url }}/subscribe">Subscribe</a></li>
-</ul>
+<iframe class="subscribe" src="{{ site.newsletter_url }}/embed" title="Subscribe to the OpenEAC Alliance" frameborder="0" scrolling="no"></iframe>
+
+<p class="subscribe-fallback">Form not showing? <a href="{{ site.newsletter_url }}/subscribe">Subscribe on Substack</a>.</p>
 
 <p>Membership is open to individuals and organizations; you do not need to represent a company.</p>
 

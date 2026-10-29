@@ -68,3 +68,10 @@ h2 { font-size: 1.35rem; margin: 2.25rem 0 0.75rem; }
 .site-footer { border-top: 1px solid var(--line); margin-top: 4rem; color: var(--muted); font-size: 0.9rem; }
 .site-footer .wrap { padding-block: 1.5rem; }
 .site-footer p { margin: 0.25rem 0; }
+
+/* Substack's form is 480px wide at most; on a phone it takes the column. */
+.subscribe {
+  display: block; width: 100%; max-width: 480px; height: 320px;
+  border: 1px solid #eee; border-radius: 8px; background: #fff; margin-top: 1.5rem;
+}
+.subscribe-fallback { font-size: 0.9rem; color: var(--muted); }
