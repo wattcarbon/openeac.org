@@ -18,6 +18,8 @@ Two other places hold the rest, and this site links to both:
 | The next meeting | `_data/next_meeting.yml` |
 | Add a past meeting | `_data/meetings.yml`, newest first |
 | Page copy | `index.html`, `methodologies.md`, `meetings.html`, `governance.md`, `join.html` |
+| The home page band (title, intro, buttons) | the `hero` block in `index.html`'s front matter |
+| Colors | the variables at the top of `assets/site.css`, taken from the logo |
 
 `_redirects/` forwards each address the site had on Substack, such as
 `/p/<slug>`, to the same post on openeac.substack.com. A post published after

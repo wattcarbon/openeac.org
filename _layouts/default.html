@@ -5,13 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="theme-color" content="#22422c">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:image" content="{{ '/assets/img/logo.png' | absolute_url }}">
+  <link rel="icon" type="image/png" href="{{ '/assets/img/logo.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/logo.png' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <nav>
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="" width="36" height="36">
+        <span>{{ site.title }}</span>
+      </a>
+      <nav aria-label="Main">
         {% assign nav = "methodologies:Methodologies,meetings:Meetings,governance:Governance,join:Get involved" | split: "," %}
         {% for item in nav %}{% assign parts = item | split: ":" %}
         <a href="{{ '/' | append: parts[0] | append: '/' | relative_url }}"{% if page.url contains parts[0] %} aria-current="page"{% endif %}>{{ parts[1] }}</a>
@@ -20,17 +32,39 @@
       </nav>
     </div>
   </header>
+  {% comment %}
+    A page with `hero` in its front matter opens with a full-width band: the
+    home page uses it. Every other page starts straight into its content.
+  {% endcomment %}
+  {% if page.hero %}
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ page.hero.title }}</h1>
+      <p class="lede">{{ page.hero.lede }}</p>
+      {% if page.hero.actions %}
+      <ul class="actions">
+        {% for a in page.hero.actions %}
+        <li><a class="button{% if forloop.first %} button--primary{% endif %}" href="{% if a.href contains '://' %}{{ a.href }}{% else %}{{ a.href | relative_url }}{% endif %}">{{ a.label }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
   <main class="wrap">
     {{ content }}
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p>
-        Methodologies: <a href="{{ site.methods_url }}">methods.openeac.org</a> ·
-        Newsletter: <a href="{{ site.newsletter_url }}">openeac.substack.com</a> ·
-        Contact: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
-      </p>
-      <p>This site is <a href="https://github.com/wattcarbon/openeac.org">open source</a>.</p>
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="" width="28" height="28">
+      <div>
+        <p>
+          Methodologies: <a href="{{ site.methods_url }}">methods.openeac.org</a> ·
+          Newsletter: <a href="{{ site.newsletter_url }}">openeac.substack.com</a> ·
+          Contact: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+        </p>
+        <p>This site is <a href="https://github.com/wattcarbon/openeac.org">open source</a>.</p>
+      </div>
     </div>
   </footer>
 </body>
